@@ -1,5 +1,9 @@
 package com.chatbot.ai.api.chat.bot.ai.repo;
 
-public interface ChatRepo {
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import com.chatbot.ai.api.chat.bot.ai.model.ChatModel;
+
+public interface ChatRepo extends MongoRepository<ChatModel, String> {
 
 }
