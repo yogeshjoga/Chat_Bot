@@ -1,10 +1,10 @@
 package com.mychatbot.pugChatBot.service;
 
-import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.mychatbot.pugChatBot.repo.ChatDb;
-import com.mychatbot.pugChatBot.repo.ChatMessage;
+
 
 public class ChatBotService {
 
@@ -16,7 +16,7 @@ public class ChatBotService {
 	public String chatResponce(String question) {
 
 		String message = "";
-		String responce = "";
+		String responce ;
 
 		if (question.contains("hello") || question.contains("hi")) {
 			return message = "how are you man im good";
@@ -29,7 +29,8 @@ public class ChatBotService {
 		 * answer......
 		 */
 		else {
-			responce = chatBotService.dbSearch(question);
+	    	responce = chatDb.findById(question).toString();
+		//	responce = chatBotService.dbSearch(question);
 			System.out.println(responce);
 			return responce;
 		}
@@ -37,8 +38,13 @@ public class ChatBotService {
 
 	public String dbSearch(String key) {
 		// we are getting only one question
-		Optional<ChatMessage> responce = chatDb.findById(key);
-		return responce.toString();
+		//Optional<ChatMessage> responce = chatDb.findById(key);
+		
+		chatDb.findById(key);
+		
+		//return responce.toString();
+		System.out.println(chatDb.findById(key).toString());
+		return chatDb.findById(key).toString();
 	}
 
 }
