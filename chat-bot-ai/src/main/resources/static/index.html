@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>I am your PUG</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+      }
+      
+      .chatbox {
+        width: 400px;
+        margin: 50px auto;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      
+      .chatbox-header {
+        background-color: #f0f0f0;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+      }
+      
+      .chatbox-header h2 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: normal;
+      }
+      
+      .chatbox-messages {
+        height: 300px;
+        padding: 10px;
+        overflow-y: scroll;
+      }
+      
+      .chatbox-message {
+        margin-bottom: 10px;
+      }
+      
+      .chatbox-message span {
+        display: inline-block;
+        padding: 5px;
+        border-radius: 5px;
+      }
+      
+      .chatbox-message-bot {
+        background-color: #e6e6e6;
+      }
+      
+      .chatbox-message-user {
+        background-color: #007bff;
+        color: #fff;
+        float: right;
+      }
+      
+      .chatbox-input {
+        padding: 10px;
+        border-top: 1px solid #ccc;
+      }
+      
+      .chatbox-input input[type="text"] {
+        width: 100%;
+        padding: 5px;
+        border: none;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chatbox">
+      <div class="chatbox-header">
+        <h2>PUG your Chat Bot</h2>
+      </div>
+      <div class="chatbox-messages">
+        <div class="chatbox-message chatbox-message-bot">
+          <span>Hello! How can I help you?</span>
+        </div>
+        <div class="chatbox-message chatbox-message-user">
+          <span>Sure, I would like to know about your pricing plans.</span>
+        </div>
+        <div class="chatbox-message chatbox-message-bot">
+          <span>Our pricing plans start at $10 per month. Would you like me to send you more information?</span>
+        </div>
+      </div>
+      <div class="chatbox-input">
+        <input type="text" placeholder="Type your message here...">
+      </div>
+    </div>
+  </body>
+</html>

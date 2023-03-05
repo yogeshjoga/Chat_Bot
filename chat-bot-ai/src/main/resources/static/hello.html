@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot</title>
+</head>
+<body>
+    <div id="chat">
+        <div id="messages"></div>
+        <input id="input" type="text" placeholder="Type your message...">
+        <button id="send">Send</button>
+    </div>
+    
+    <script th:inline="javascript">
+        var url = /*[[ @{/chat} ]]*/ '';
+        
+        var messages = document.getElementById('messages');
+        var input = document.getElementById('input');
+        var send = document.getElementById('send');
+        
+        send.onclick = function() {
+            var text = input.value;
+            input.value = '';
+            
+            var message = document.createElement('div');
+            message.innerHTML = '<b>You:</b> ' + text;
+            messages.appendChild(message);
+            
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    text: text
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                var message = document.createElement('div');
+                message.innerHTML = '<b>Chatbot:</b> ' + data.text;
+                messages.appendChild(message);
+            });
+        };
+    </script>
+</body>
+</html>
